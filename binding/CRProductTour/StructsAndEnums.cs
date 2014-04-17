@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace CRProductTourBinding
+namespace CRProductTour
 {
-	public enum CRArrowPosition {
+	public enum ArrowPosition
+	{
 		Top,
 		Bottom,
-		Right,
-		Left
+		Left,
+		Right
 	}
 }
-

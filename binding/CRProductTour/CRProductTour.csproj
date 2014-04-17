@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F31EE36-487B-42D2-A933-501B4BC44E26}</ProjectGuid>
+    <ProjectGuid>{9DD3BD9B-57E1-49C6-B7A2-3FC1CF9B5C18}</ProjectGuid>
     <ProjectTypeGuids>{F5B4F3BC-B597-4E2B-B552-EF5D8A32436F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>CRProductTourBinding</RootNamespace>
+    <RootNamespace>CRProductTour</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>CRProductTour</AssemblyName>
   </PropertyGroup>

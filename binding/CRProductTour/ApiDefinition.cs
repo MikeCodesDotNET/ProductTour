@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Drawing;
+using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
-using MonoTouch.ObjCRuntime;
-using MonoTouch.CoreGraphics;
 
-namespace CRProductTourBinding {
-
-	[BaseType (typeof (UIView))]
-	public partial interface CRBubble {
+namespace CRProductTour
+{
+	[BaseType (typeof (UIView), Name="CRBubble")]
+	public partial interface Bubble {
 
 		[Export ("attachedView", ArgumentSemantic.Retain)]
 		UIView AttachedView { get; set; }
@@ -20,7 +19,7 @@ namespace CRProductTourBinding {
 		string Description { get; set; }
 
 		[Export ("arrowPosition")]
-		CRArrowPosition ArrowPosition { get; set; }
+		ArrowPosition ArrowPosition { get; set; }
 
 		[Export ("color", ArgumentSemantic.Retain)]
 		UIColor Color { get; set; }
@@ -29,7 +28,7 @@ namespace CRProductTourBinding {
 		string FontName { get; set; }
 
 		[Export ("initWithAttachedView:title:description:arrowPosition:andColor:")]
-		IntPtr Constructor (UIView view, string title, string description, CRArrowPosition arrowPosition, UIColor color);
+		IntPtr Constructor (UIView view, string title, string description, ArrowPosition arrowPosition, [NullAllowed] UIColor color);
 
 		[Export ("size")]
 		SizeF Size { get; }
@@ -38,8 +37,8 @@ namespace CRProductTourBinding {
 		RectangleF Frame { get; }
 	}
 
-	[BaseType (typeof (UIView))]
-	public partial interface CRProductTour {
+	[BaseType (typeof (UIView), Name="CRProductTour")]
+	public partial interface ProductTour {
 
 		[Export ("bubblesArray", ArgumentSemantic.Retain)]
 		NSMutableArray BubblesArray { get; set; }
@@ -47,7 +46,12 @@ namespace CRProductTourBinding {
 		[Export ("bubbles")]
 		NSMutableArray Bubbles { set; }
 
+		[Export ("visible")]
+		bool Visible { set; }
+
 		[Export ("isVisible")]
 		bool IsVisible { get; }
 	}
+
 }
+
