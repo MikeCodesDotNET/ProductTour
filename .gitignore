@@ -1,0 +1,11 @@
+.DS_Store
+*.userprefs
+*.user
+*.suo
+*.quicktest
+bin
+obj
+test-results
+*.ide
+
+Verses.iOS/.DS_Store
