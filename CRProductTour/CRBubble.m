@@ -9,10 +9,10 @@
 #import "CRBubble.h"
 #define CR_PADDING 8
 #define CR_RADIUS 6
-#define COLOR_GLUE_BLUE [UIColor colorWithRed:0.0 green:0.48 blue:1.0 alpha:1.0]
-#define COLOR_DARK_GRAY [UIColor colorWithWhite:0.13 alpha:1.0]
-#define CR_TITLE_FONT_SIZE 24
-#define CR_DESCRIPTION_FONT_SIZE 14
+#define COLOR_BLUE [UIColor colorWithRed:0.2314 green:0.6039 blue:0.7294 alpha:1.0]
+#define COLOR_WHITE [UIColor colorWithRed:1 green:1 blue:1 alpha:1.0]
+#define CR_TITLE_FONT_SIZE 17
+#define CR_DESCRIPTION_FONT_SIZE 15
 
 #define SHOW_ZONE NO
 
@@ -30,7 +30,7 @@
         if(color!=nil)
             self.color=color;
         else
-            self.color=COLOR_GLUE_BLUE;
+            self.color=COLOR_BLUE;
         self.attachedView = view;
         self.title = title;
         self.description = description;
@@ -46,8 +46,7 @@
     float actualHeight = CR_TITLE_FONT_SIZE;
     
     titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(actualXPosition, actualYPosition, actualWidth, actualHeight)];
-    [titleLabel setTextColor:[UIColor blackColor]];
-    [titleLabel setAlpha:0.6];
+    [titleLabel setTextColor:COLOR_WHITE];
     [titleLabel setFont:[UIFont fontWithName:fontName size:CR_TITLE_FONT_SIZE]];
     [titleLabel setText:title];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
@@ -65,7 +64,7 @@
         actualHeight =CR_DESCRIPTION_FONT_SIZE;
         
         UILabel *descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(actualXPosition, actualYPosition, actualWidth, actualHeight+CR_ARROW_SPACE)];
-        [descriptionLabel setTextColor:COLOR_DARK_GRAY];
+        [descriptionLabel setTextColor:COLOR_WHITE];
         [descriptionLabel setFont:[UIFont systemFontOfSize:CR_DESCRIPTION_FONT_SIZE]];
         [descriptionLabel setText:descriptionLine];
         [descriptionLabel setBackgroundColor:[UIColor clearColor]];
@@ -126,7 +125,7 @@
     float height = CR_PADDING*3;
     float width = CR_PADDING*3;
     
-    float titleWidth = [self.title length]*CR_TITLE_FONT_SIZE/2.5;
+    float titleWidth = [self.title length]*CR_TITLE_FONT_SIZE/2;
     
     if(self.title && ![self.title isEqual:@""])
     {
@@ -142,7 +141,10 @@
     }
     
     if (descriptionWidth>titleWidth) {
-        width+=descriptionWidth;
+        // width+=descriptionWidth;
+        if (descriptionWidth > width) {
+            width = descriptionWidth + CR_PADDING;
+        }
     }else{
         width+=titleWidth;
     }
